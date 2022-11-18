@@ -28,6 +28,7 @@ class Reserva extends Model
 
 
     public $fillable = [
+        'mesa_id',
         'hora_reserva',
         'fecha_reserva'
     ];
@@ -47,8 +48,9 @@ class Reserva extends Model
      * @var array
      */
     public static $rules = [
-        'hora_reserva' => 'require',
-        'fecha_reserva' => 'require'
+        'mesa_id' => 'required',
+        'hora_reserva' => 'required',
+        'fecha_reserva' => 'required'
     ];
 
     

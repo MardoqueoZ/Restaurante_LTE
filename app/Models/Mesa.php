@@ -29,7 +29,8 @@ class Mesa extends Model
 
     public $fillable = [
         'desc_mesa',
-        'costo'
+        'costo',
+        'moneda'
     ];
 
     /**
@@ -48,8 +49,9 @@ class Mesa extends Model
      * @var array
      */
     public static $rules = [
-        'desc_mesa' => 'require',
-        'costo' => 'require'
+        'desc_mesa' => 'required',
+        'costo' => 'required',
+        'moneda' => 'require'
     ];
 
     

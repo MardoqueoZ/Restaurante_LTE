@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateMesaRequest;
 use App\Repositories\MesaRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 use Response;
 
 class MesaController extends AppBaseController

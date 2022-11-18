@@ -18,6 +18,7 @@ class CreateMesasTable extends Migration
             $table->id('id');
             $table->text('desc_mesa');
             $table->integer('costo');
+            $table->text('moneda');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -2,8 +2,8 @@
     <table class="table" id="mesas-table">
         <thead>
         <tr>
-            <th>Desc Mesa</th>
-        <th>Costo</th>
+            <th>Mesa</th>
+            <th>Costo</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
@@ -11,7 +11,7 @@
         @foreach($mesas as $mesa)
             <tr>
                 <td>{{ $mesa->desc_mesa }}</td>
-            <td>{{ $mesa->costo }}</td>
+                <td>{{ $mesa->costo }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['mesas.destroy', $mesa->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

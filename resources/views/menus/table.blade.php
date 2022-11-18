@@ -2,8 +2,8 @@
     <table class="table" id="menus-table">
         <thead>
         <tr>
-            <th>Desc Menu</th>
-        <th>Costo</th>
+            <th>Menu</th>
+            <th>Costo</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>

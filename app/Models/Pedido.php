@@ -29,6 +29,7 @@ class Pedido extends Model
 
 
     public $fillable = [
+        'menu_id',
         'hora_pedido',
         'fecha_pedido',
         'cantidad_pedido'
@@ -50,9 +51,10 @@ class Pedido extends Model
      * @var array
      */
     public static $rules = [
-        'hora_pedido' => 'require',
-        'fecha_pedido' => 'require',
-        'cantidad_pedido' => 'require'
+        'menu_id' => 'required',
+        'hora_pedido' => 'required',
+        'fecha_pedido' => 'required',
+        'cantidad_pedido' => 'required'
     ];
 
     

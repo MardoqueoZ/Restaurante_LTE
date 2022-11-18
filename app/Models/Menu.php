@@ -48,8 +48,8 @@ class Menu extends Model
      * @var array
      */
     public static $rules = [
-        'desc_menu' => 'require',
-        'costo' => 'require'
+        'desc_menu' => 'required',
+        'costo' => 'required'
     ];
 
     
