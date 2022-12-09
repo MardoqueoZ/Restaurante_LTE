@@ -51,7 +51,7 @@ class Mesa extends Model
     public static $rules = [
         'desc_mesa' => 'required',
         'costo' => 'required',
-        'moneda' => 'require'
+        'moneda' => 'required'
     ];
 
     

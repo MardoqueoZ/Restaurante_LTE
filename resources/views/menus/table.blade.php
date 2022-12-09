@@ -4,7 +4,7 @@
         <tr>
             <th>Menu</th>
             <th>Costo</th>
-            <th colspan="3">Action</th>
+            <th colspan="3">Funciones</th>
         </tr>
         </thead>
         <tbody>

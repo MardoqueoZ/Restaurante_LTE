@@ -58,7 +58,7 @@ class MesaController extends AppBaseController
 
         $mesa = $this->mesaRepository->create($input);
 
-        Flash::success('Mesa saved successfully.');
+        Flash::success('Guardada correctamente.');
 
         return redirect(route('mesas.index'));
     }
@@ -75,7 +75,7 @@ class MesaController extends AppBaseController
         $mesa = $this->mesaRepository->find($id);
 
         if (empty($mesa)) {
-            Flash::error('Mesa not found');
+            Flash::error('Mesa no encontrada');
 
             return redirect(route('mesas.index'));
         }
@@ -95,7 +95,7 @@ class MesaController extends AppBaseController
         $mesa = $this->mesaRepository->find($id);
 
         if (empty($mesa)) {
-            Flash::error('Mesa not found');
+            Flash::error('Mesa no encontrada');
 
             return redirect(route('mesas.index'));
         }
@@ -116,14 +116,14 @@ class MesaController extends AppBaseController
         $mesa = $this->mesaRepository->find($id);
 
         if (empty($mesa)) {
-            Flash::error('Mesa not found');
+            Flash::error('Mesa no encontrada');
 
             return redirect(route('mesas.index'));
         }
 
         $mesa = $this->mesaRepository->update($request->all(), $id);
 
-        Flash::success('Mesa updated successfully.');
+        Flash::success('Editada correctamente.');
 
         return redirect(route('mesas.index'));
     }
@@ -142,14 +142,14 @@ class MesaController extends AppBaseController
         $mesa = $this->mesaRepository->find($id);
 
         if (empty($mesa)) {
-            Flash::error('Mesa not found');
+            Flash::error('Mesa no encontrada');
 
             return redirect(route('mesas.index'));
         }
 
         $this->mesaRepository->delete($id);
 
-        Flash::success('Mesa deleted successfully.');
+        Flash::success('Eliminado correctamente.');
 
         return redirect(route('mesas.index'));
     }

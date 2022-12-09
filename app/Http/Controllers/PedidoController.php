@@ -7,7 +7,7 @@ use App\Http\Requests\UpdatePedidoRequest;
 use App\Repositories\PedidoRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 use Response;
 
 class PedidoController extends AppBaseController
@@ -58,7 +58,7 @@ class PedidoController extends AppBaseController
 
         $pedido = $this->pedidoRepository->create($input);
 
-        Flash::success('Pedido saved successfully.');
+        Flash::success('Pedido guardado correctamente.');
 
         return redirect(route('pedidos.index'));
     }
@@ -75,7 +75,7 @@ class PedidoController extends AppBaseController
         $pedido = $this->pedidoRepository->find($id);
 
         if (empty($pedido)) {
-            Flash::error('Pedido not found');
+            Flash::error('Pedido no encontrado');
 
             return redirect(route('pedidos.index'));
         }
@@ -95,7 +95,7 @@ class PedidoController extends AppBaseController
         $pedido = $this->pedidoRepository->find($id);
 
         if (empty($pedido)) {
-            Flash::error('Pedido not found');
+            Flash::error('Pedido no encontrado');
 
             return redirect(route('pedidos.index'));
         }
@@ -116,14 +116,14 @@ class PedidoController extends AppBaseController
         $pedido = $this->pedidoRepository->find($id);
 
         if (empty($pedido)) {
-            Flash::error('Pedido not found');
+            Flash::error('Pedido no encontrado');
 
             return redirect(route('pedidos.index'));
         }
 
         $pedido = $this->pedidoRepository->update($request->all(), $id);
 
-        Flash::success('Pedido updated successfully.');
+        Flash::success('Editado correctamente.');
 
         return redirect(route('pedidos.index'));
     }
@@ -142,14 +142,14 @@ class PedidoController extends AppBaseController
         $pedido = $this->pedidoRepository->find($id);
 
         if (empty($pedido)) {
-            Flash::error('Pedido not found');
+            Flash::error('Pedido no encontrado');
 
             return redirect(route('pedidos.index'));
         }
 
         $this->pedidoRepository->delete($id);
 
-        Flash::success('Pedido deleted successfully.');
+        Flash::success('Eliminado correctamente.');
 
         return redirect(route('pedidos.index'));
     }

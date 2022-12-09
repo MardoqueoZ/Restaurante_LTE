@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateMenuRequest;
 use App\Repositories\MenuRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 use Response;
 
 class MenuController extends AppBaseController
@@ -58,7 +58,7 @@ class MenuController extends AppBaseController
 
         $menu = $this->menuRepository->create($input);
 
-        Flash::success('Menu saved successfully.');
+        Flash::success('Menú guardado correctamente.');
 
         return redirect(route('menus.index'));
     }
@@ -75,7 +75,7 @@ class MenuController extends AppBaseController
         $menu = $this->menuRepository->find($id);
 
         if (empty($menu)) {
-            Flash::error('Menu not found');
+            Flash::error('Menú no encontrado');
 
             return redirect(route('menus.index'));
         }
@@ -95,7 +95,7 @@ class MenuController extends AppBaseController
         $menu = $this->menuRepository->find($id);
 
         if (empty($menu)) {
-            Flash::error('Menu not found');
+            Flash::error('Menú no encontrado');
 
             return redirect(route('menus.index'));
         }
@@ -116,14 +116,14 @@ class MenuController extends AppBaseController
         $menu = $this->menuRepository->find($id);
 
         if (empty($menu)) {
-            Flash::error('Menu not found');
+            Flash::error('Menú no encontrado');
 
             return redirect(route('menus.index'));
         }
 
         $menu = $this->menuRepository->update($request->all(), $id);
 
-        Flash::success('Menu updated successfully.');
+        Flash::success('Editado correctamente.');
 
         return redirect(route('menus.index'));
     }
@@ -142,14 +142,14 @@ class MenuController extends AppBaseController
         $menu = $this->menuRepository->find($id);
 
         if (empty($menu)) {
-            Flash::error('Menu not found');
+            Flash::error('Menú no encontrado');
 
             return redirect(route('menus.index'));
         }
 
         $this->menuRepository->delete($id);
 
-        Flash::success('Menu deleted successfully.');
+        Flash::success('Eliminado correctamente.');
 
         return redirect(route('menus.index'));
     }

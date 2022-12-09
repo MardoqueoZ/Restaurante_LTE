@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateReservaRequest;
 use App\Repositories\ReservaRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 use Response;
 
 class ReservaController extends AppBaseController
@@ -58,7 +58,7 @@ class ReservaController extends AppBaseController
 
         $reserva = $this->reservaRepository->create($input);
 
-        Flash::success('Reserva saved successfully.');
+        Flash::success('Reserva guardada.');
 
         return redirect(route('reservas.index'));
     }
@@ -75,7 +75,7 @@ class ReservaController extends AppBaseController
         $reserva = $this->reservaRepository->find($id);
 
         if (empty($reserva)) {
-            Flash::error('Reserva not found');
+            Flash::error('Reserva no encontrada');
 
             return redirect(route('reservas.index'));
         }
@@ -95,7 +95,7 @@ class ReservaController extends AppBaseController
         $reserva = $this->reservaRepository->find($id);
 
         if (empty($reserva)) {
-            Flash::error('Reserva not found');
+            Flash::error('Reserva no encontrada');
 
             return redirect(route('reservas.index'));
         }
@@ -116,14 +116,14 @@ class ReservaController extends AppBaseController
         $reserva = $this->reservaRepository->find($id);
 
         if (empty($reserva)) {
-            Flash::error('Reserva not found');
+            Flash::error('Reserva no encontrada');
 
             return redirect(route('reservas.index'));
         }
 
         $reserva = $this->reservaRepository->update($request->all(), $id);
 
-        Flash::success('Reserva updated successfully.');
+        Flash::success('Reserva editada.');
 
         return redirect(route('reservas.index'));
     }
@@ -142,14 +142,14 @@ class ReservaController extends AppBaseController
         $reserva = $this->reservaRepository->find($id);
 
         if (empty($reserva)) {
-            Flash::error('Reserva not found');
+            Flash::error('Reserva no encontrada');
 
             return redirect(route('reservas.index'));
         }
 
         $this->reservaRepository->delete($id);
 
-        Flash::success('Reserva deleted successfully.');
+        Flash::success('Reserva eliminada.');
 
         return redirect(route('reservas.index'));
     }
