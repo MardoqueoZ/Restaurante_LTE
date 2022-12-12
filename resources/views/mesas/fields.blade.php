@@ -10,8 +10,3 @@
     {!! Form::text('costo', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Moneda Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('moneda', 'Moneda:') !!}
-    {!! Form::text('moneda', null, ['class' => 'form-control']) !!}
-</div>

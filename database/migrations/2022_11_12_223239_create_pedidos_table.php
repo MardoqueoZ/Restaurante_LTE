@@ -18,8 +18,6 @@ class CreatePedidosTable extends Migration
             $table->id('id');
             $table->unsignedBigInteger('menu_id');
             $table->foreign('menu_id')->references('id')->on('menus');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->time('hora_pedido');
             $table->date('fecha_pedido');
             $table->integer('cantidad_pedido');

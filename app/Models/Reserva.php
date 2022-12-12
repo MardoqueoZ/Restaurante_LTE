@@ -53,5 +53,8 @@ class Reserva extends Model
         'fecha_reserva' => 'required'
     ];
 
-    
+    public function mesas (){
+        return $this->belongsTo('App\Models\Mesa', 'mesa_id');
+        //esta funcion se uso en el index de alumno
+    }
 }

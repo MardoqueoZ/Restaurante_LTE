@@ -6,6 +6,7 @@ use App\Http\Requests\CreateReservaRequest;
 use App\Http\Requests\UpdateReservaRequest;
 use App\Repositories\ReservaRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Mesa;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use Response;
@@ -42,7 +43,8 @@ class ReservaController extends AppBaseController
      */
     public function create()
     {
-        return view('reservas.create');
+        $mesas = Mesa::pluck('desc_mesa', 'id');
+        return view('reservas.create', compact('mesas'));;
     }
 
     /**
@@ -74,13 +76,15 @@ class ReservaController extends AppBaseController
     {
         $reserva = $this->reservaRepository->find($id);
 
+        $mesas = Mesa::pluck('desc_mesa', 'id');
+
         if (empty($reserva)) {
-            Flash::error('Reserva no encontrada');
+            Flash::error('Reserva no encontrado');
 
             return redirect(route('reservas.index'));
         }
 
-        return view('reservas.show')->with('reserva', $reserva);
+        return view('reservas.show', compact('reserva','mesas'));
     }
 
     /**
@@ -93,14 +97,15 @@ class ReservaController extends AppBaseController
     public function edit($id)
     {
         $reserva = $this->reservaRepository->find($id);
+        $mesas = Mesa::pluck('desc_mesa', 'id');
 
         if (empty($reserva)) {
-            Flash::error('Reserva no encontrada');
+            Flash::error('Reserva no encontrado');
 
             return redirect(route('reservas.index'));
         }
 
-        return view('reservas.edit')->with('reserva', $reserva);
+        return view('reservas.edit', compact('reserva','mesas'));
     }
 
     /**

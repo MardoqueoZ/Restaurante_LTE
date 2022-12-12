@@ -57,5 +57,8 @@ class Pedido extends Model
         'cantidad_pedido' => 'required'
     ];
 
-    
+    public function menus (){
+        return $this->belongsTo('App\Models\Menu', 'menu_id');
+        //esta funcion se uso en el index de alumno
+    }
 }

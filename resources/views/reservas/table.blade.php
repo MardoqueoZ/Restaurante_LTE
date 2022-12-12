@@ -3,7 +3,8 @@
         <thead>
         <tr>
             <th>Hora Reserva</th>
-        <th>Fecha Reserva</th>
+            <th>Fecha Reserva</th>
+            <th>Mesa</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
@@ -11,7 +12,8 @@
         @foreach($reservas as $reserva)
             <tr>
                 <td>{{ $reserva->hora_reserva }}</td>
-            <td>{{ $reserva->fecha_reserva }}</td>
+                <td>{{ $reserva->fecha_reserva }}</td>
+                <td>{{ $reserva->mesas->desc_mesa}}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['reservas.destroy', $reserva->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

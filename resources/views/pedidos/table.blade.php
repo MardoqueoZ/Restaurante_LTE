@@ -3,17 +3,19 @@
         <thead>
         <tr>
             <th>Hora Pedido</th>
-        <th>Fecha Pedido</th>
-        <th>Cantidad Pedido</th>
-            <th colspan="3">Action</th>
+            <th>Fecha Pedido</th>
+            <th>Cantidad Pedido</th>
+            <th>Menu</th>
+            <th colspan="3">Funciones</th>
         </tr>
         </thead>
         <tbody>
         @foreach($pedidos as $pedido)
             <tr>
                 <td>{{ $pedido->hora_pedido }}</td>
-            <td>{{ $pedido->fecha_pedido }}</td>
-            <td>{{ $pedido->cantidad_pedido }}</td>
+                <td>{{ $pedido->fecha_pedido }}</td>
+                <td>{{ $pedido->cantidad_pedido }}</td>
+                <td>{{ $pedido->menus->desc_menu}}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['pedidos.destroy', $pedido->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

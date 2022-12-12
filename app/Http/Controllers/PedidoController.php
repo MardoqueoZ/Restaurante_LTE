@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePedidoRequest;
 use App\Repositories\PedidoRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\Menu;
 use Laracasts\Flash\Flash;
 use Response;
 
@@ -42,7 +43,8 @@ class PedidoController extends AppBaseController
      */
     public function create()
     {
-        return view('pedidos.create');
+        $menus = Menu::pluck('desc_menu', 'id');
+        return view('pedidos.create', compact('menus'));
     }
 
     /**
@@ -73,6 +75,7 @@ class PedidoController extends AppBaseController
     public function show($id)
     {
         $pedido = $this->pedidoRepository->find($id);
+        $menus = Menu::pluck('desc_menu', 'id');
 
         if (empty($pedido)) {
             Flash::error('Pedido no encontrado');
@@ -80,7 +83,7 @@ class PedidoController extends AppBaseController
             return redirect(route('pedidos.index'));
         }
 
-        return view('pedidos.show')->with('pedido', $pedido);
+        return view('pedidos.show', compact('pedido','menus'));
     }
 
     /**
@@ -93,6 +96,7 @@ class PedidoController extends AppBaseController
     public function edit($id)
     {
         $pedido = $this->pedidoRepository->find($id);
+        $menus = Menu::pluck('desc_menu', 'id');
 
         if (empty($pedido)) {
             Flash::error('Pedido no encontrado');
@@ -100,7 +104,7 @@ class PedidoController extends AppBaseController
             return redirect(route('pedidos.index'));
         }
 
-        return view('pedidos.edit')->with('pedido', $pedido);
+        return view('pedidos.edit', compact('pedido','menus'));
     }
 
     /**
